@@ -151,6 +151,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     redis-cli ping > /dev/null && \
     curl -f http://localhost:8000/health || exit 1'
 
-EXPOSE 6379
-CMD ["supervisord", "-c", "supervisord.conf"]
-    
+#EXPOSE 6379
+#CMD ["supervisord", "-c", "supervisord.conf"]
+
+EXPOSE 8080
+CMD ["uvicorn", "crawl4ai.api.app:app", "--host", "0.0.0.0", "--port", "8080"]    
