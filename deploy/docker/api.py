@@ -447,3 +447,4 @@ async def handle_stream_crawl_request(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e)
         )
+        app = FastAPI(...)
